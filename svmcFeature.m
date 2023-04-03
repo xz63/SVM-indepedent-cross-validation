@@ -5,15 +5,7 @@ function [m ,ind,tvalglm]=svmcFeature(X,Y,nB)
 % Y is label of 1 or 2
 % this program selected nfeature < Nfeature in X based on the ttest between a feature's Ttest between group 1 and group 2
 % and perform SVM one time and return the SVM object for cross-validation
-nS=size(X,2);
-if isScramble==1
-    a=scramble2(Y);
-else
-    a=Y;
-end
-for i=1:nS
-    ind=1:nS;
-    ind(i)=[];
+
 % if you only do univariant analysis nB=0
 [nB1,nS]=size(X);
 ind1=find(Y==max(Y));
