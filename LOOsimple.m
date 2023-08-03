@@ -1,4 +1,4 @@
-function [e,l,score]=LOOsimple(X,Y,b,isscramble)
+function [e,l,score]=LOOsimple(X,Y,b,isScramble)
 % Author: Dr. Xian Zhang from Yale school of medicine, Psychiatry Department
 % this program perform SVM machine learning for a binary classification
 % X is matrix with Nfeature X nSubject
@@ -10,19 +10,24 @@ function [e,l,score]=LOOsimple(X,Y,b,isscramble)
 %  l is the label predicted by SVM
 % score is the continuous score where score >0   indicates label is 1 
 % a is the scrambled Y   or Y depend on the last input parameter
+nS0=length(Y);
+%[X, Y]=resampleML(X,Y);
 nS=size(X,2);
-if isscramble>0
-    a=scramble2(Y);
-else
-    a=Y;
+switch isScramble
+    case 1
+        a=scramble2(Y);
+    case 2 
+        a=scramble3(Y);
+    case 0
+        a=Y;
 end
 [m,indf]=svmcFeature(X,a,b);
 nS=size(X,2);
-for i=1:nS
+for i=1:nS0
     ind=1:nS;
     ind(i)=[];
     m=fitcsvm(X(indf,ind)',a(ind));
     [l(i) s]=predict(m,X(indf,i)');
     score(i)=s(1);
 end
-e=1-sum(l(:)==a(:))/nS;
+e=1-sum(l(:)==a(1:nS0))/nS0;
