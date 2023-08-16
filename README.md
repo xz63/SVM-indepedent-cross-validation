@@ -6,4 +6,4 @@ For each feature, we can calculate the ttest between two groups and choose those
 Using simple K-fold cross-validation, and using a random sample, the performance can be 80% while the true accuracy should be 50% because labels are random. 
 Nested cross-validation yield near 50% for random data and thus is a more meaningful result.
 run test.m for the demo
-Please cite our paper "Prediction of Individual Autism Diagnostic Observation Schedule (ADOS) Scores Based on Neural Responses During Live Eye-to-Eye Contact"
+Please cite our paper "Prediction of Individual Autism Diagnostic Observation Schedule (ADOS) Scores Based on Neural Responses During Live Eye-to-Eye Contact" 
