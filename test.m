@@ -115,7 +115,7 @@ for i=1:1000
 end
     
    a=sort(randomcorrelation);  % the correlation should be negative
-   a=[ -0.7210   -0.7193  ...] % only 1/1000 better than real data. therefore p value of that correlation 
+   %a=[ -0.7210   -0.7193  ...] % only 1/1000 better than real data. therefore p value of that correlation 
       % of .72 obtained by real data is  <2/1000
  
     
